@@ -1,0 +1,52 @@
+<mat-toolbar style="display: block">
+    <span>Angular</span>
+</mat-toolbar>
+
+<div>
+    <form [formGroup]="service.form" class="normal-form">
+        <mat-grid-list cols="2" rowHeight="360px">
+            <mat-grid-tile>
+                <div class="controles-container">
+                    <input type="hidden" formControlName="$key">
+                    <mat-form-field>
+                        <input formControlName="code" matInput placeholder="Code">
+                        <mat-error>This field is mandatory!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="name" matInput placeholder="Name of product">
+                        <mat-error>This field is mandatory!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="brand" matInput placeholder="Brand">
+                        <mat-error>This field is mandatory!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <textarea formControlName="description" matInput placeholder="Some information about product..."></textarea>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="price" matInput placeholder="Price">
+                        <mat-error>This field is mandatory!</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="quantity" matInput placeholder="Number in stock">
+                        <mat-error>This field is mandatory!</mat-error>
+                    </mat-form-field>     
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="controles-container">
+                    <div class="img-card">
+                        <img mat-card-image src="../../../assets/img/product/p7.jpg" alt="Photo of product">
+                        <span >
+                            <input id="input-file-id" type="file" style="margin-top: 10px;"/>
+                        </span>
+                    </div>
+                </div>
+            </mat-grid-tile>             
+        </mat-grid-list>
+        <div id="btn-submit">
+            <button mat-raised-button color="warn">Submit</button>
+            <button mat-stroked-button color="warn">Reset</button>
+        </div>
+    </form>
+</div>
