@@ -18,4 +18,18 @@ export class AdminService {
     image       : new FormControl(''),
     quantity    : new FormControl('', Validators.required),
   });
+
+  initializeFormGroup(){
+    this.form.setValue({
+      $key        : null,
+      code        : '',
+      name        : '',
+      brand       : '',
+      description : '',
+      price       : '',
+      image       : '',
+      quantity    : ''
+    })
+  }
+
 }

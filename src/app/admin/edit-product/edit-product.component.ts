@@ -14,4 +14,9 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onReset(){
+    this.service.form.reset();
+    this.service.initializeFormGroup();
+  }
+
 }
