@@ -1,16 +1,15 @@
-table {
-    width: 100%;
+ion-icon {
+    font-size: 30px;   
 }
 
-mat-form-field{
-  width: 100%;
+ion-icon[name="albums-outline"] {
+    color: lightseagreen;
 }
 
-.hide{
-  display: none;
+ion-icon[name="close-circle-outline"] {
+    color: red;
 }
 
-mat-footer-row mat-footer-cell{
-  justify-content: center;
-  font-style: italic;
+.col-sm-6{
+    display:inline-block;
 }

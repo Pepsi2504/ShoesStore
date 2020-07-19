@@ -1,26 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr'
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 
 import { AdminComponent } from './admin/admin.component';
-import { AdminService } from './shared/admin.service'
 import { ListProductComponent } from './admin/list-product/list-product.component';
-
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { ReactiveFormsModule } from '@angular/forms'
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatInputModule } from '@angular/material/input';
+import { ProductService } from './shared/product.service';
 import { EditProductComponent } from './admin/edit-product/edit-product.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
-// import { MatTableDataSource } from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-// import { MatSortModule } from '@angular/material/sort';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -32,20 +25,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    ReactiveFormsModule,
-    MatGridListModule,
-    MatInputModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTableModule,
-    MatIconModule,
-    // MatTableDataSource,
-    MatPaginatorModule,
-    // MatSortModule
+    ToastrModule.forRoot(),
   ],
-  providers: [AdminService],
-  bootstrap: [AppComponent]
+  providers: [ProductService],
+  bootstrap: [AppComponent],
+  entryComponents:[EditProductComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

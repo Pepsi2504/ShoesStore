@@ -1,52 +1,36 @@
-<mat-toolbar style="display: block">
-    <span>Angular</span>
-</mat-toolbar>
-
-<div>
-    <form [formGroup]="service.form" class="normal-form">
-        <mat-grid-list cols="2" rowHeight="360px">
-            <mat-grid-tile>
-                <div class="controles-container">
-                    <input type="hidden" formControlName="$key">
-                    <mat-form-field>
-                        <input formControlName="code" matInput placeholder="Code">
-                        <mat-error>This field is mandatory!</mat-error>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input formControlName="name" matInput placeholder="Name of product">
-                        <mat-error>This field is mandatory!</mat-error>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input formControlName="brand" matInput placeholder="Brand">
-                        <mat-error>This field is mandatory!</mat-error>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <textarea formControlName="description" matInput placeholder="Some information about product..."></textarea>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input formControlName="price" matInput placeholder="Price">
-                        <mat-error>This field is mandatory!</mat-error>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input formControlName="quantity" matInput placeholder="Number in stock">
-                        <mat-error>This field is mandatory!</mat-error>
-                    </mat-form-field>     
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <input type="hidden" name="Code" #Code="ngModel" [(ngModel)]="service.formData.Code">
+    <div class="form-group">
+        <label>Name</label>
+        <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" class="form-control" required>
+        <div class="validation-error" *ngIf="Name.invalid && Name.touched">This field is required!</div>
+    </div>
+    <div class="form-group">
+        <label>Brand</label>
+        <input name="Brand" #Brand="ngModel" [(ngModel)]="service.formData.Brand" class="form-control" required>
+        <div class="validation-error" *ngIf="Brand.invalid && Brand.touched">This field is required!</div>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea rows="4" name="Description" #Description="ngModel" [(ngModel)]="service.formData.Description" class="form-control"></textarea>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Price</label>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">$</span>
                 </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="controles-container">
-                    <div class="img-card">
-                        <img mat-card-image src="../../../assets/img/product/p7.jpg" alt="Photo of product">
-                        <span >
-                            <input id="input-file-id" type="file" style="margin-top: 10px;"/>
-                        </span>
-                    </div>
-                </div>
-            </mat-grid-tile>             
-        </mat-grid-list>
-        <div id="btn-submit">
-            <button mat-raised-button color="warn">Submit</button>
-            <button mat-stroked-button color="warn" (click)="onReset()">Reset</button>
+                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" name="Price" #Price="ngModel" [(ngModel)]="service.formData.Price" class="form-control" required>
+            </div>
+            <div class="validation-error" *ngIf="Price.invalid && Price.touched">This field is required!</div>
         </div>
-    </form>
-</div>
+        <div class="form-group col-md-6">
+            <label>Quantity</label>
+            <input type="number" name="Quantity" #Quantity="ngModel" [(ngModel)]="service.formData.Quantity" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Submit</button>
+    </div>
+</form>
