@@ -1,5 +1,5 @@
 <div style="text-align: right; padding: 10px 0 10px;">
-    <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop2"><span>New Product</span> </button>
+    <button  type="button" class="btn btn-primary" (click)="createProduct()" data-toggle="modal" data-target="#staticBackdrop2"><span>New Product</span> </button>
 </div> 
 
 <br>
@@ -19,11 +19,11 @@
       <tbody>
         <tr *ngFor="let pro of service.list">
             <td>{{pro.Name}}</td>
-            <td  style="text-align: center;">{{pro.Brand}}</td>
+            <td style="text-align: center;">{{pro.Brand}}</td>
             <td style="max-width: 500px;">{{pro.Description}}</td>
-            <td  style="text-align: center;">{{pro.Quantity}}</td>
-            <td  style="text-align: center;">{{pro.Price}}</td>
-            <td>pro.Image</td>
+            <td style="text-align: center;">{{pro.Quantity}}</td>
+            <td style="text-align: center;">{{pro.Price}}</td>
+            <td><img class="img_product" src="../../../assets/img/category/c3.jpg" alt=""></td>
             <td>
                 <div class="col-sm-6">
                    <ion-icon type="button" name="albums-outline" (click)="editProduct(pro)" data-toggle="modal" data-target="#staticBackdrop"></ion-icon>
@@ -37,9 +37,7 @@
             <td><ion-icon type="button" name="close-circle-outline" (click)="deleteProduct(pro.Code, pro.Name)"></ion-icon></td> -->
         </tr>
       </tbody>
-    
 </table>
-
 
 <!-- Button trigger modal -->
   <!-- Modal -->

@@ -13,3 +13,8 @@ ion-icon[name="close-circle-outline"] {
 .col-sm-6{
     display:inline-block;
 }
+
+.img_product{
+    max-width: 100px;
+    max-height: 100px;
+}

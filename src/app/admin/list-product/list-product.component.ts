@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/product.service';
 import { Product } from 'src/app/shared/product.model';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-list-product',
@@ -14,6 +15,18 @@ export class ListProductComponent implements OnInit {
 
   ngOnInit(){
     this.service.refreshList();
+  }
+
+  createProduct(){
+    this.service.formData = {
+      Code : null,
+      Name : '',
+      Brand : '',
+      Description : '',
+      Price : null,
+      Image : '',
+      Quantity : 0,
+    }
   }
 
   editProduct(pro : Product){

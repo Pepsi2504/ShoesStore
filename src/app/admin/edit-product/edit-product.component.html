@@ -9,6 +9,12 @@
         <label>Brand</label>
         <input name="Brand" #Brand="ngModel" [(ngModel)]="service.formData.Brand" class="form-control" required>
         <div class="validation-error" *ngIf="Brand.invalid && Brand.touched">This field is required!</div>
+        <!-- <select id="inputState" class="form-control" name="Brand" #Brand="ngModel" [(ngModel)]="service.formData.Brand">
+            <option selected disabled>--Brand--</option>
+            <option value="Nike">Nike</option>
+            <option value="Adidas">Adidas</option>
+            <option value="Reebok">Reebok</option>
+        </select> -->
     </div>
     <div class="form-group">
         <label>Description</label>
