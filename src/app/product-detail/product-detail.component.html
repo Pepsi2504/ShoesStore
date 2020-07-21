@@ -17,9 +17,9 @@
 	<!--================Single Product Area =================-->
 	<div class="product_image_area">
 
-      <div class="alert alert-info" *ngIf="showSuccessMessageAdd">
+      <!-- <div class="alert alert-info" *ngIf="showSuccessMessageAdd">
           Added to Cart Successfully!!!
-      </div>
+      </div> -->
 
 		<div class="container">
 			<div class="row s_product_inner">
@@ -32,10 +32,10 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h3>detail.name</h3>
-						<h2>detail.price USD</h2>
+						<h3 #Name="ngModel" [(ngModel)]="service.formData.Name"></h3>
+						<h2>pro.Price USD</h2>
 						<ul class="list">
-							<li><a class="active" href="#"><span>Category: </span> detail.brand</a></li>
+							<li><a class="active" href="#"><span>Category: </span> pro.Brand</a></li>
 							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
 						</ul>
 						<p>detail.description</p>

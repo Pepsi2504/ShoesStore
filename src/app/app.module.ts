@@ -13,6 +13,8 @@ import { AdminComponent } from './admin/admin.component';
 import { ListProductComponent } from './admin/list-product/list-product.component';
 import { ProductService } from './shared/product.service';
 import { EditProductComponent } from './admin/edit-product/edit-product.component';
+import { ProductComponent } from './product/product.component'
+import { ProductDetailComponent } from './product-detail/product-detail.component'
 import { from } from 'rxjs';
 
 @NgModule({
@@ -21,6 +23,8 @@ import { from } from 'rxjs';
     AdminComponent,
     EditProductComponent,
     ListProductComponent,
+    ProductComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,

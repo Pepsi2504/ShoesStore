@@ -27,6 +27,10 @@ export class ProductService {
     return this.http.put(this.rootURL+'/Product/'+formData.Code,formData);
   }
 
+  getProduct(id: number){
+    return this.http.get(this.rootURL+'/Product/'+id);
+  }
+
   deleteProduct(id: number){
     return this.http.delete(this.rootURL+'/Product/'+id);
   }
